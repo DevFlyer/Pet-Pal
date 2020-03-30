@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "pet-pal"
+    }
+  },
+  "defaultProject": "pet-pal",
+  "cli": {
+    "analytics": false
+  }
 }
