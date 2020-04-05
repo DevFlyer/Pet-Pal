@@ -12,7 +12,7 @@ export class PostComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.post.imageUrl = './assets/images/kitten.jpg';
+    this.post.imageUrl = './assets/images/kitten.jfif';
     this.post.text = `Palo santo lumbersexual woke DIY marfa 
                       shaman disrupt. Marfa everyday carry irony listicle 
                       meggings hashtag austin, mustache kombucha. Raclette 

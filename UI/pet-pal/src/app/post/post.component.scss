@@ -1,4 +1,14 @@
 .timeline-post {
-    width: 75%;
     margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.timeline-post img {
+    max-width: 400px;
+    max-height: 400px;
+    align-self: center;
+    margin-top: 10px;
+    border: 1px black solid;
 }
