@@ -1,13 +1,14 @@
 const express = require("express");
 const app = express();
 const fileUpload = require("express-fileUpload");
-const TimelineService = require("./services/timeline-service.js");
 const port = 3000;
 
-let Post = require("./models/post");
-Post = Post.Post;
-const { savePost, getNextId } = require("./services/timeline-service.js");
-// const  = require("./services/timeline-service.js");
+const Post = require("./models/post");
+const {
+  savePost,
+  getNextId,
+  getTimeline,
+} = require("./services/timeline-service.js");
 
 app.use(fileUpload());
 
@@ -15,9 +16,12 @@ app.use(fileUpload());
 app.get("/", (req, res) => res.send("Hello World!"));
 
 app.get("/timeline", (req, res) => {
-  TimelineService.getTimeline()
+  getTimeline()
     .then((data) => res.json(JSON.parse(data)))
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      res.status(500);
+      console.error(err);
+    });
 });
 
 app.post("/post/image", (req, res) => {
@@ -33,7 +37,10 @@ app.post("/post/image", (req, res) => {
     }
 
     const post = Post();
-    post.id = await getNextId();
+    post.id = await getNextId().catch((err) => {
+      res.status(500).send("getNextId broke");
+      console.error(err);
+    });
     post.imageUrl = `upload/images/${sampleFile.name}`;
     savePost(post).then((result) => {
       res.send({ result, post: post.id });

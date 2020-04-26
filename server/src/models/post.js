@@ -14,7 +14,7 @@
 ];
  */
 
-module.exports.Post = function () {
+module.exports = function () {
   return {
     id: 0,
     imageUrl: "",
