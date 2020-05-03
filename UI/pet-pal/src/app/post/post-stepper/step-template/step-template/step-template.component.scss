@@ -1,0 +1,15 @@
+@import 'variables';
+
+mat-card {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+h1 {
+    color: $cyber-purple-primary;
+    text-align: center;
+}

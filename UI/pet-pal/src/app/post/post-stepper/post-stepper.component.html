@@ -1,8 +1,11 @@
 <mat-horizontal-stepper>
     <mat-step label="Image">
-        Add Image
+        <app-step-template [title]='imageStep' [instructions]='imageInstructions' [stepType]='image'></app-step-template>
     </mat-step>
     <mat-step label="Text">
-        Add Text
+        <app-step-template [title]='postTextStep' [instructions]='postTextInstructions' [stepType]='text'></app-step-template>
+    </mat-step>
+    <mat-step label="Confirm">
+        <app-step-template [title]='confirmStep' [instructions]='confirmInstructions' [stepType]='confirm'></app-step-template>
     </mat-step>
 </mat-horizontal-stepper>

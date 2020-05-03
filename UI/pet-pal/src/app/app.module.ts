@@ -6,9 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import {MatStepperModule} from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
 import { TimelineComponent } from './timeline/timeline.component';
 import { PostComponent } from './post/post.component';
 import { PostStepperComponent } from './post/post-stepper/post-stepper.component';
+import { StepTemplateComponent } from './post/post-stepper/step-template/step-template/step-template.component';
+import { PostTextComponent } from './post/post-stepper/post-text/post-text.component';
+import { PostConfirmComponent } from './post/post-stepper/post-confirm/post-confirm.component';
+import { PostImageComponent } from './post/post-stepper/post-image/post-image.component';
 
 
 const appRoutes: Routes = [
@@ -26,13 +31,18 @@ const appRoutes: Routes = [
     AppComponent,
     TimelineComponent,
     PostComponent,
-    PostStepperComponent
+    PostStepperComponent,
+    StepTemplateComponent,
+    PostTextComponent,
+    PostConfirmComponent,
+    PostImageComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatStepperModule,
+    MatButtonModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
