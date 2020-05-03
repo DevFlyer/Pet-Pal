@@ -1,1 +1,5 @@
+<div [formGroup]="postForm">
 <p>post-confirm works!</p>
+<p>{{formText}}</p>
+<img class="previewImg" [src]="imageSource" *ngIf='imageSource'/>
+<button mat-raised-button color='primary' (click)="submitForm()">Submit</button></div>

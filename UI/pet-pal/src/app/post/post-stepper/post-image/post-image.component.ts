@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ReadVarExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-post-image',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostImageComponent implements OnInit {
 
-  constructor() { }
+  @Input() postForm: FormGroup;
+  imageSource:any;
+  
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
@@ -16,10 +21,25 @@ export class PostImageComponent implements OnInit {
     document.getElementById("fileInput").click();
   }
 
-  fileChange(event: FileList) {
-    if(event.length > 0) {
-        let file: File = event[0];
-        console.log(file);
+  fileChange(files: FileList) {
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      // this.message = "Only images are supported.";
+      return;
+    }
+ 
+    var reader = new FileReader();
+    // this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imageSource = reader.result; 
+      this.postForm.patchValue({
+        image: this.imageSource
+      });
+      // this.cd.markForCheck();
     }
   }
 }

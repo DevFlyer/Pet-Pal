@@ -1,1 +1,5 @@
-<p>post-text works!</p>
+<mat-form-field appearance="fill" [formGroup]="postForm">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput formControlName="text"></textarea>
+</mat-form-field>
+<button mat-raised-button color='primary'>Add A Caption</button>
