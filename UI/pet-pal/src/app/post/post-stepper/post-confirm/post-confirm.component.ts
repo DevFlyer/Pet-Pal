@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { PostService } from '../../post.service';
+import { Post } from 'src/app/models/post';
 
 @Component({
   selector: 'app-post-confirm',
@@ -9,7 +11,8 @@ import { FormGroup } from '@angular/forms';
 export class PostConfirmComponent implements OnInit {
   @Input() postForm: FormGroup;
   postText:string;
-  constructor() { }
+  postService: PostService;
+  constructor(postService: PostService) { }
 
   ngOnInit(): void {
     console.log('in confirm ngOnInit');
@@ -26,6 +29,12 @@ export class PostConfirmComponent implements OnInit {
   }
 
   submitForm() {
-    //this.postService.submitPost()
+    let post:Post = {
+      text: this.postText,
+      image: this.postForm.controls.image.value,
+      id: 0
+    }
+    this.postService.savePost(post)
+      .subscribe();
   }
 }
