@@ -17,7 +17,7 @@ app.get("/", (req, res) => res.send("Hello World!"));
 
 app.get("/timeline", (req, res) => {
   getTimeline()
-    .then((data) => res.json(JSON.parse(data)))
+    .then((data) => res.send(data))
     .catch((err) => {
       res.status(500);
       console.error(err);
