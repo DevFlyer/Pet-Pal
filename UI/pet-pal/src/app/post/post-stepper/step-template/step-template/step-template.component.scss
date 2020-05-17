@@ -13,3 +13,9 @@ h1 {
     color: $cyber-purple-primary;
     text-align: center;
 }
+
+app-post-image, app-post-text, app-post-confirm {
+    display: flex;
+    flex-direction: column;
+}
+

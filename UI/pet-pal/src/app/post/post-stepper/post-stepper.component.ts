@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-post-stepper',
@@ -16,6 +17,10 @@ export class PostStepperComponent implements OnInit {
   image: string;
   text: string;
   confirm: string;
+  postForm:FormGroup = new FormGroup({
+    image: new FormControl(''),
+    text: new FormControl('')
+  });
   
   constructor() { }
 
