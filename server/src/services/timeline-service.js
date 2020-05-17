@@ -1,30 +1,26 @@
-const fs = require("fs");
-const path = require("path");
+const Connection = require("../data/connection");
+const Post = require("../data/posts");
+Connection();
 
-const dataPath = path.resolve(__dirname, "..", "data.json");
-
-const getTimeline = function () {
-  return new Promise((resolve, reject) => {
-    fs.readFile(dataPath, (err, data) => {
-      if (err) reject(err);
-      resolve(data);
-    });
+const getTimeline = async function () {
+  return Post.find({}, function (err, posts) {
+    if (err) throw err;
+    return posts;
   });
 };
 
 const getNextId = async () => {
   let timeline = await getTimeline();
-  timeline = JSON.parse(timeline);
   return timeline.length + 1;
 };
 
 const savePost = async (post) => {
-  let timeline = await getTimeline();
-  timeline = JSON.parse(timeline);
-  timeline.push(post);
-  timeline = JSON.stringify(timeline);
-  fs.writeFileSync(dataPath, timeline);
-  return timeline;
+  const newPost = Post(post);
+  newPost.save(function (err) {
+    if (err) throw err;
+    console.log("Post created!");
+    return true;
+  });
 };
 
 module.exports = {
