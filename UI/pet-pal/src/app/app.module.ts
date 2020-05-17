@@ -17,6 +17,8 @@ import { PostTextComponent } from './post/post-stepper/post-text/post-text.compo
 import { PostConfirmComponent } from './post/post-stepper/post-confirm/post-confirm.component';
 import { PostImageComponent } from './post/post-stepper/post-image/post-image.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PostService } from './post/post.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const appRoutes: Routes = [
@@ -49,12 +51,15 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
     )
   ],
-  providers: [],
+  providers: [
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

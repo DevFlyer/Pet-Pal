@@ -9,9 +9,24 @@ mat-card {
     align-items: center;
 }
 
+mat-card-actions {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+mat-card-header {
+    padding-bottom: 50px;
+}
+
 h1 {
     color: $cyber-purple-primary;
     text-align: center;
+}
+
+.thick-bar {
+    border: 3px $cyber-purple-primary solid;
+    margin-top: -20px;
 }
 
 app-post-image, app-post-text, app-post-confirm {

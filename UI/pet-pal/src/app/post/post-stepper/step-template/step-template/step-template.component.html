@@ -1,17 +1,20 @@
     <mat-card>
         <mat-card-header>
-            <mat-card-title><h1>{{title}}</h1></mat-card-title>
+            <mat-card-title>
+                <h1>{{title}}</h1>
+                <hr class='thick-bar' />
+            </mat-card-title>
             <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
         <mat-card-content [ngSwitch]="stepType">
             <p>{{instructions}}</p>
             <app-post-image *ngSwitchCase="'image'" [postForm]="postForm"></app-post-image>
             <app-post-text *ngSwitchCase="'text'" [postForm]="postForm"></app-post-text>
-            <app-post-confirm *ngSwitchCase="'confirm'" [postForm]="postForm"></app-post-confirm>
+            <app-post-confirm *ngSwitchCase="'confirm'" [postForm]="postForm" [events]="eventSubject.asObservable()"></app-post-confirm>
 
         </mat-card-content>
         <mat-card-actions>
-            <!-- <button mat-button>Ok</button> -->
+            <button mat-button  mat-raised-button color='primary'(click)="advanceStepper(stepType)" matStepperNext>{{nextStepButtonText}}</button>
         </mat-card-actions>
     </mat-card>
 

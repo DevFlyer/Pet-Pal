@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-step-template',
@@ -12,10 +13,19 @@ export class StepTemplateComponent implements OnInit {
   @Input() instructions: string;
   @Input() stepType:string;
   @Input() postForm:FormGroup;
+  @Input() nextStepButtonText: string;
+
+  eventSubject: Subject<void> = new Subject<void>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  advanceStepper(stepType) {
+    if (stepType === 'confirm') {
+      this.eventSubject.next();
+    }
   }
 
 }

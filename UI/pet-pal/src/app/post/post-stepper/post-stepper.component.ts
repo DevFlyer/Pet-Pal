@@ -21,6 +21,9 @@ export class PostStepperComponent implements OnInit {
     image: new FormControl(''),
     text: new FormControl('')
   });
+  imageStepButtonText: string;
+  textStepButtonText: string;
+  confirmStepButtonText: string;
   
   constructor() { }
 
@@ -36,6 +39,10 @@ export class PostStepperComponent implements OnInit {
     this.imageInstructions = "What is your furry friend up to now? Upload an image.";
     this.postTextInstructions = "What is your furry friend doing? Type about it the text box below";
     this.confirmInstructions = "Make sure this is what you want to share and send it out.";
+
+    this.imageStepButtonText = "Add Text To Post";
+    this.textStepButtonText = "Confirm Post";
+    this.confirmStepButtonText = "Upload Post";
   }
 
 }
