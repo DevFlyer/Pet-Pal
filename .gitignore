@@ -45,3 +45,7 @@ e2e/*.map
 .history
 
 # End of https://www.gitignore.io/api/angular,visualstudiocode
+
+server/.vscode/settings.json
+
+UI/pet-pal/.vscode/settings.json
