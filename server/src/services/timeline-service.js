@@ -1,6 +1,6 @@
 const Connection = require("../data/connection");
-const Post = require("../data/posts");
 Connection();
+const Post = require("../models/post");
 
 const getTimeline = async function () {
   return Post.find({}, function (err, posts) {
@@ -9,22 +9,35 @@ const getTimeline = async function () {
   });
 };
 
-const getNextId = async () => {
-  let timeline = await getTimeline();
-  return timeline.length + 1;
+const processPost = (req) => {
+  const sampleFile = req.files.sampleFile;
+  const post = Post();
+
+  post.text = req.body.text;
+  post.status = req.body.status;
+  post.imageUrl = sampleFile.mv(`upload/images/${sampleFile.name}`, (err) => {
+    if (err) {
+      res.status(500);
+      return err; // Probably only if in debug mode
+    }
+
+    return `upload/images/${sampleFile.name}`;
+  });
+  return post;
 };
 
-const savePost = async (post) => {
-  const newPost = Post(post);
+const savePost = async (req) => {
+  const newPost = await processPost(req);
+  console.log({ newPost });
   newPost.save(function (err) {
     if (err) throw err;
     console.log("Post created!");
-    return true;
+    return "Post created!";
   });
 };
 
 module.exports = {
   getTimeline,
-  getNextId,
   savePost,
+  processPost,
 };
