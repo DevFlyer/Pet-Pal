@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-petpal-dev-165016-authRole",
+            "UnauthRoleArn": "arn:aws:iam::146923672504:role/amplify-petpal-dev-165016-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::146923672504:role/amplify-petpal-dev-165016-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-petpal-dev-165016-deployment",
+            "UnauthRoleName": "amplify-petpal-dev-165016-unauthRole",
+            "StackName": "amplify-petpal-dev-165016",
+            "StackId": "arn:aws:cloudformation:us-east-1:146923672504:stack/amplify-petpal-dev-165016/7f6549a0-a900-11ea-8e19-1201663355d3",
+            "AmplifyAppId": "d1f5dkgjttuttw"
+        },
+        "categories": {
+            "auth": {
+                "petpalb4fa62f1": {}
+            }
+        }
+    }
+}

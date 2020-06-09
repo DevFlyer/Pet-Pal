@@ -20,6 +20,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PostService } from './post/post.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
+import { Amplify } from 'aws-amplify';
+import awsconfig from '../aws-exports';
+
+Amplify.configure(awsconfig);
+
 
 const appRoutes: Routes = [
   { path: 'timeline', component: TimelineComponent },
@@ -55,7 +61,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }
-    )
+    ),
+    AmplifyUIAngularModule
   ],
   providers: [
     PostService

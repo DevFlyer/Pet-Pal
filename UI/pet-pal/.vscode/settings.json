@@ -2,8 +2,22 @@
     "editor.wordWrap": "on",
     "editor.wordWrapColumn": 120,
     "workbench.colorCustomizations": {
-        "activityBar.background": "#491C45",
-        "titleBar.activeBackground": "#662761",
-        "titleBar.activeForeground": "#FDF9FC"
-    }
+        "activityBar.background": "#491c45",
+        "titleBar.activeBackground": "#240e22",
+        "titleBar.activeForeground": "#e7e7e7",
+        "activityBar.activeBackground": "#491c45",
+        "activityBar.activeBorder": "#6d732c",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#6d732c",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "statusBar.background": "#240e22",
+        "statusBar.border": "#240e22",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#491c45",
+        "titleBar.border": "#240e22",
+        "titleBar.inactiveBackground": "#240e2299",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#240e22"
 }

@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"petpalb4fa62f1": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
