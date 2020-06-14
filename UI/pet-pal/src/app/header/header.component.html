@@ -1,0 +1,5 @@
+<div>
+    <a [routerLink]="['/post']" routerLinkActive="router-link-active">Create Post</a>
+
+    <button *ngIf='!userSignedIn()' (click)="signOutUser()">Sign Out</button>
+</div>

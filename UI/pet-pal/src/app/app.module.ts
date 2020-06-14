@@ -23,6 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AmplifyUIAngularModule } from '@aws-amplify/ui-angular';
 import { Amplify } from 'aws-amplify';
 import awsconfig from '../aws-exports';
+import { SignOutComponent } from './sign-out/sign-out.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { HeaderComponent } from './header/header.component';
+import { NotauthorizedComponent } from './notauthorized/notauthorized.component';
 
 Amplify.configure(awsconfig);
 
@@ -30,6 +34,8 @@ Amplify.configure(awsconfig);
 const appRoutes: Routes = [
   { path: 'timeline', component: TimelineComponent },
   { path: 'post', component: PostStepperComponent },
+  { path: 'signin', component: SignInComponent },
+  { path: 'signout', component: SignOutComponent },
   { 
     path: '',
     redirectTo: '/timeline',
@@ -46,7 +52,11 @@ const appRoutes: Routes = [
     StepTemplateComponent,
     PostTextComponent,
     PostConfirmComponent,
-    PostImageComponent
+    PostImageComponent,
+    SignOutComponent,
+    SignInComponent,
+    HeaderComponent,
+    NotauthorizedComponent
   ],
   imports: [
     BrowserModule,
